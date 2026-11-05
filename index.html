@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>True Movement Lab | Online personal training, Albury</title>
+<meta name="description" content="Simple, evidence-based online personal training for adults getting back into exercise. Personalised 8-week programs with Jorge Beavan. Start in 2 minutes.">
+<meta property="og:title" content="True Movement Lab | Start again. Stay strong for life.">
+<meta property="og:description" content="Online personal training for adults getting back into exercise. Start in 2 minutes, no payment to apply.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Archivo+Black&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;800&family=Playfair+Display:ital,wght@1,800&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111214; --paper:#F4F1EA; --white:#FFFFFF; --news:#E6E1D6;
+    --accent:#2BC4D4; --teal:#2BC4D4; --slate:#7D8A99; --line:#D9D3C4;
+    --type:'Courier Prime', ui-monospace, monospace;
+    --sans:'Inter', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;
+    }
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:20;background:rgba(244,241,234,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:'Archivo Black',var(--sans);font-size:18px;letter-spacing:.02em;text-decoration:none;display:flex;gap:8px;align-items:center}
+  .logo b{background:var(--ink);color:var(--white);padding:2px 7px;transform:rotate(-3deg);display:inline-block}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:800;font-size:16px;
+    text-decoration:none;background:var(--ink);color:var(--white);padding:14px 22px;border-radius:6px;border:2px solid var(--ink);
+    box-shadow:3px 3px 0 var(--teal);transition:transform .12s, box-shadow .12s}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--teal)}
+  .btn.sm{padding:9px 14px;font-size:14px;box-shadow:2px 2px 0 var(--teal)}
+
+  /* ---------- cut-out letters ---------- */
+  .cut{display:flex;flex-wrap:wrap;gap:4px 3px;align-items:center;margin:0}
+  .cut{gap:10px 10px}
+  .cut .w{display:inline-flex;align-items:center;padding:.06em .22em .1em;line-height:1;box-shadow:0 3px 10px rgba(0,0,0,.12);
+    clip-path:polygon(1% 6%,30% 0,62% 4%,99% 1%,100% 55%,98% 96%,64% 100%,34% 95%,0 100%,2% 50%)}
+  .cut .w.in{animation:pop .42s cubic-bezier(.3,1.6,.5,1) both}
+  .cut .w .l{box-shadow:none;clip-path:none;padding:0 .06em;margin:0 .02em}
+  .cut .l{display:inline-block;padding:.05em .15em;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.12);
+    clip-path:polygon(2% 4%,48% 0,97% 3%,100% 52%,96% 97%,52% 100%,3% 96%,0 48%)}
+  .cut .l.in{animation:pop .42s cubic-bezier(.3,1.6,.5,1) both}
+  @keyframes pop{from{opacity:0;transform:scale(.3) rotate(var(--r0))}to{opacity:1;transform:scale(1) rotate(var(--r))}}
+  @media (prefers-reduced-motion:reduce){.cut .l.in{animation:none}}
+
+  .strip{display:inline-block;font-family:var(--type);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+    padding:5px 12px;background:var(--white);color:var(--ink);border:1px solid var(--line);transform:rotate(-1.5deg);
+    clip-path:polygon(0 8%,30% 0,70% 6%,100% 0,98% 92%,64% 100%,28% 94%,2% 100%)}
+  .strip.dark{background:var(--ink);color:var(--white)}
+  .strip.teal{background:var(--teal);border-color:var(--teal);color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:56px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1.45fr .8fr;gap:40px;align-items:center}
+  .hero h1{font-size:clamp(38px,5.4vw,70px)}
+  .lead{font-size:clamp(18px,2.1vw,21px);max-width:34ch;margin:22px 0 26px}
+  .micro{font-family:var(--type);font-size:14px;margin-top:14px;opacity:.85}
+  .note{position:relative;background:var(--white);padding:26px 24px 22px;transform:rotate(1deg);box-shadow:0 10px 30px rgba(0,0,0,.08);
+    background-image:repeating-linear-gradient(transparent 0 31px, #EEEAE1 31px 32px)}
+  .note::before{content:"";position:absolute;top:-12px;left:50%;width:120px;height:28px;transform:translateX(-50%) rotate(-4deg);background:rgba(214,208,196,.7)}
+  .note h3{font-family:var(--type);font-size:15px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px}
+  .note ul{list-style:none;margin:0;padding:0;font-family:var(--type);font-size:17px;line-height:32px}
+  .note li::before{content:"✓ ";color:var(--teal);font-weight:700}
+  .price{display:flex;align-items:baseline;gap:8px;margin-top:10px;font-family:'Archivo Black',var(--sans)}
+  .price .n{font-size:40px}
+  .price small{font-family:var(--type);font-size:14px}
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0}
+  .sec-head{margin-bottom:28px}
+  .sec-head h2{font-size:clamp(30px,4.6vw,48px)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{background:var(--white);padding:24px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.06)}
+  .step:nth-child(2){transform:rotate(-.8deg)} .step:nth-child(3){transform:rotate(.6deg)}
+  .step .num{font-family:'Abril Fatface',serif;font-size:44px;line-height:1;color:var(--teal)}
+  .step h3{margin:8px 0 6px;font-size:20px}
+  .step p{margin:0}
+
+  .measure{background:var(--ink);color:var(--white);background-image:none}
+  .measure .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{font-family:var(--type);font-weight:700;padding:8px 12px;background:var(--white);color:var(--ink);transform:rotate(var(--r,0deg))}
+  .chip.a{background:var(--teal)} .chip.s{background:var(--slate);color:var(--white)}
+
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+  .clip{background:var(--news);padding:24px;box-shadow:0 10px 26px rgba(0,0,0,.08);transform:rotate(-1deg)}
+  .clip .mast{font-family:var(--type);font-size:13px;letter-spacing:.08em;text-transform:uppercase;border-bottom:3px double var(--ink);padding-bottom:6px;margin-bottom:12px}
+  .clip h3{font-family:'Playfair Display',serif;font-style:italic;font-size:30px;line-height:1.1;margin:0 0 10px}
+  .creds{font-family:var(--type);font-size:15px;margin:0;padding-left:18px}
+
+  /* ---------- form ---------- */
+  #start{scroll-margin-top:70px}
+  .form-card{background:var(--white);border:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.08);padding:28px 26px 10px;max-width:720px;margin:0 auto;position:relative}
+  .form-card::before{content:"";position:absolute;top:-14px;left:40px;width:130px;height:30px;transform:rotate(-5deg);background:rgba(214,208,196,.75)}
+  .form-card iframe{display:block;width:100%;border:0;min-height:560px}
+  .fallback{font-family:var(--type);font-size:14px;text-align:center;margin:8px 0 14px}
+
+  .faq{max-width:760px;margin:0 auto}
+  details{border-bottom:1px solid var(--line);padding:16px 0}
+  summary{font-weight:800;font-size:18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--type);color:var(--teal);font-size:24px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin:10px 0 0}
+
+  .stk{position:absolute;pointer-events:none;z-index:3;filter:drop-shadow(0 6px 10px rgba(0,0,0,.18));transform:rotate(var(--r,0deg))}
+  .stk.pop{animation:spop .5s cubic-bezier(.3,1.6,.5,1) both}
+  @keyframes spop{from{opacity:0;transform:scale(.4) rotate(calc(var(--r,0deg) - 15deg))}to{opacity:1;transform:scale(1) rotate(var(--r,0deg))}}
+  .rel{position:relative}
+  .closer{text-align:center;padding:70px 0 80px}
+  .closer h2{justify-content:center;font-size:clamp(30px,4.6vw,48px)}
+  .closer p{margin:16px auto 26px;max-width:40ch}
+  @media (max-width:820px){.stk.hide-m{display:none}
+    .s-mega{width:96px!important;top:-62px!important;right:-8px!important}
+    .s-burst{width:84px!important;top:-24px!important;left:calc(100% + 10px)!important}
+    .s-man{position:relative!important;display:block;margin:0 auto 18px;left:auto!important;top:auto!important;width:130px!important}
+    .closer{padding-top:40px}}
+  @media (prefers-reduced-motion:reduce){.stk.pop,.cut .w.in{animation:none}}
+  footer{border-top:1px solid var(--line);padding:28px 0 100px;font-family:var(--type);font-size:14px}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+
+  /* sticky mobile CTA */
+  .mcta{display:none}
+  @media (max-width:820px){
+    .hero-grid,.measure .wrap,.about{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .hero{padding-top:36px}
+    .note{transform:rotate(.8deg)}
+    .bar .btn{display:none}
+    .mcta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30;transition:transform .25s}
+    .mcta .btn{width:100%;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+    .mcta.hide{transform:translateY(140%)}
+    section{padding:44px 0}
+    .form-card{padding:22px 14px 6px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="True Movement Lab home"><b>TML</b> True Movement Lab</a>
+    <a class="btn sm" href="#start">Start in 2 min</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="strip">Online PT · Albury & online</span>
+        <h1 class="cut" data-cut="START AGAIN.|STAY STRONG.|FOR LIFE." style="margin-top:18px">Start again. Stay strong. For life.</h1>
+        <p class="lead">Simple, evidence-based coaching for adults getting back into exercise. A plan built around your goals, and progress you can actually measure.</p>
+        <div class="rel" style="display:inline-block">
+          <a class="btn" href="#start">Start in 2 minutes →</a>
+          <img class="stk s-burst" src="stickers/burst-free.png" alt="" aria-hidden="true" style="width:clamp(92px,10vw,120px);left:calc(100% + 26px);top:-62px;--r:6deg">
+        </div>
+        <p class="micro">No payment to apply. Quick chat first, no pressure.</p>
+      </div>
+      <aside class="note rel" aria-label="What you get">
+        <img class="stk s-mega" src="stickers/megaphone.png" alt="" aria-hidden="true" style="width:clamp(100px,12vw,150px);top:-120px;right:-40px;--r:8deg">
+        <h3>What you get</h3>
+        <ul>
+          <li>Your own 8-week program</li>
+          <li>Simple diet guidance</li>
+          <li>Video feedback on your form</li>
+          <li>Weekly check-ins</li>
+          <li>A monthly 1-on-1 catch-up</li>
+          <li>2–3 goals measured in numbers</li>
+        </ul>
+        <div class="price"><span class="n">$49</span><small>/ week · $35 sign-up</small></div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head rel">
+        <img class="stk hide-m" src="stickers/point-hand.png" alt="" aria-hidden="true" style="width:140px;left:330px;top:34px;--r:-6deg">
+        <span class="strip dark">How it works</span>
+        <h2 class="cut" data-cut="3 STEPS." style="margin-top:14px">3 steps.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num">01</div><h3>Fill in the short form</h3><p>Name, contact, goals and a bit about your health. About 2 minutes.</p></div>
+        <div class="step"><div class="num">02</div><h3>Have a quick chat</h3><p>Jorge calls to hear what you want and answer your questions. No hard sell.</p></div>
+        <div class="step"><div class="num">03</div><h3>Pick your goals and start</h3><p>A proper health screen, then you choose 2–3 things to measure. Your 8-week program starts.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEASURE -->
+  <section class="measure">
+    <div class="wrap">
+      <div>
+        <span class="strip teal">Progress, not guesswork</span>
+        <h2 class="cut" data-cut="WE MEASURE IT." style="margin-top:14px;font-size:clamp(30px,4.6vw,48px)">We measure it.</h2>
+        <p>You pick 2–3 things that matter to you. We test them at the start and again at week 6 to 8, so you can see exactly what changed.</p>
+      </div>
+      <div class="chips rel" aria-label="Examples of goals we measure">
+        <img class="stk" src="stickers/thumbs-up.png" alt="" aria-hidden="true" style="width:clamp(80px,9vw,110px);right:0;bottom:-120px;--r:10deg">
+        <span class="chip a" style="--r:-2deg">Max push-ups</span><span class="chip" style="--r:1deg">Body weight</span>
+        <span class="chip s" style="--r:-1deg">5 km time</span><span class="chip" style="--r:2deg">Waist</span>
+        <span class="chip a" style="--r:1deg">Squat strength</span><span class="chip" style="--r:-2deg">Plank hold</span>
+        <span class="chip s" style="--r:2deg">Sessions per week</span><span class="chip" style="--r:-1deg">Resting heart rate</span>
+        <span class="chip a" style="--r:-1deg">Daily steps</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="wrap about">
+      <div class="clip rel">
+        <img class="stk" src="stickers/bow.png" alt="" aria-hidden="true" style="width:clamp(70px,8vw,105px);right:-22px;bottom:-60px;--r:-4deg">
+        <div class="mast">Your coach · Albury NSW</div>
+        <h3>Hi, I'm Jorge.</h3>
+        <ul class="creds">
+          <li>Cert III & IV in Fitness (AIPT)</li>
+          <li>Coaching people since 2020</li>
+          <li>First Aid & CPR certified</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="cut" data-cut="NO FADS." style="font-size:clamp(30px,4.6vw,48px)">No fads.</h2>
+        <p>Most people don't need a harder program. They need one they'll actually stick to. True Movement Lab keeps it simple: training that fits your week, built on research, adjusted every week from your check-ins.</p>
+        <p>It's for people in their 30s, 40s and 50s who are starting again, starting for the first time, or ready to do more than the odd walk, and want to stay fit for the long run.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section id="start">
+    <div class="wrap">
+      <div class="sec-head rel" style="text-align:center">
+        <img class="stk" src="stickers/arrow.png" alt="" aria-hidden="true" style="width:clamp(64px,7vw,96px);left:calc(50% + 175px);top:40px;--r:-10deg">
+        <span class="strip teal">Takes about 2 minutes</span>
+        <h2 class="cut" data-cut="LET'S GO." style="margin-top:14px;justify-content:center">Let's go.</h2>
+      </div>
+      <div class="form-card">
+        <iframe id="tally" title="Start with True Movement Lab" loading="eager"
+          data-tally-src="https://tally.so/embed/laqd7X?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"></iframe>
+        <p class="fallback">Form not loading? <a href="https://tally.so/r/laqd7X">Open it here</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap faq">
+      <div class="sec-head rel"><h2 class="cut" data-cut="QUESTIONS?" style="font-size:clamp(30px,4.6vw,44px)">Questions?</h2>
+        <img class="stk" src="stickers/exclaim.png" alt="" aria-hidden="true" style="width:clamp(64px,7vw,96px);right:0;top:-30px;--r:8deg"></div>
+      <details><summary>Do I need a gym?</summary><p>No. Programs are built around where you'll actually train: a gym, at home, outdoors or a mix.</p></details>
+      <details><summary>I haven't exercised in years. Is this for me?</summary><p>Yes, that's exactly who it's for. We start where you are and build up from there.</p></details>
+      <details><summary>What if I have an injury or health condition?</summary><p>Tell us on the form. Before you start, everyone completes the Australian standard pre-exercise health screen, and if you need the OK from your GP or physio first, Jorge will talk you through it.</p></details>
+      <details><summary>How does online coaching work?</summary><p>You get your program on your phone, send short videos of your lifts for feedback, check in each week, and have a 1-on-1 catch-up each month.</p></details>
+      <details><summary>What does it cost?</summary><p>$49 per week plus a one-off $35 sign-up fee. There's nothing to pay to fill in the form or have the first chat.</p></details>
+      <details><summary>What happens after 8 weeks?</summary><p>We re-test your goals so you can see your progress, then you can keep going with a new block.</p></details>
+    </div>
+  </section>
+  <!-- CLOSER -->
+  <section class="closer">
+    <div class="wrap rel">
+      <img class="stk s-man" src="stickers/megaphone-man.png" alt="" aria-hidden="true" style="width:clamp(120px,15vw,190px);left:2%;top:-30px;--r:-5deg">
+      <img class="stk hide-m" src="stickers/burst-8wk.png" alt="" aria-hidden="true" style="width:120px;right:6%;top:-10px;--r:10deg">
+      <h2 class="cut" data-cut="READY WHEN|YOU ARE.">Ready when you are.</h2>
+      <p>Two minutes now, a quick chat, and your 8-week plan is underway.</p>
+      <a class="btn" href="#start">Start in 2 minutes →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© True Movement Lab · Albury NSW</span>
+    <span>Already a client? <a href="https://tally.so/r/WJr5pe">Health screening & goals form</a></span>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a class="btn" href="#start">Start in 2 minutes →</a></div>
+
+<script>
+// ---------- cut-out word stickers ----------
+(function(){
+  var pairs=[["#FFFFFF","#111214"],["#FFFFFF","#111214"],["#111214","#FFFFFF"],["#111214","#FFFFFF"],["#2BC4D4","#111214"],["#E6E1D6","#111214"]];
+  var main="'Archivo Black',sans-serif", alts=["'Abril Fatface',serif","'Playfair Display',serif","'Courier Prime',monospace"];
+  var seed=11; function rnd(){seed=(seed*16807)%2147483647;return (seed-1)/2147483646;}
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-cut]').forEach(function(el){
+    var lines=el.getAttribute('data-cut').split('|'); el.setAttribute('aria-label',el.textContent.trim()); el.textContent='';
+    var all=[], last=-1;
+    lines.forEach(function(line,li){
+      if(li>0){var br=document.createElement('span');br.style.flexBasis='100%';br.style.height='0';el.appendChild(br);}
+      line.split(' ').forEach(function(word){
+        var w=document.createElement('span');w.className='w';w.setAttribute('aria-hidden','true');
+        var k; do{k=Math.floor(rnd()*pairs.length);}while(k===last); last=k;
+        w.style.background=pairs[k][0];w.style.color=pairs[k][1];w.style.fontFamily=main;
+        var r=(rnd()*5-2.5).toFixed(1); w.style.setProperty('--r',r+'deg');w.style.setProperty('--r0',(r*3)+'deg');w.style.transform='rotate('+r+'deg)';
+        var swap=word.length>2&&rnd()<.6?Math.floor(rnd()*word.length):-1;
+        word.split('').forEach(function(ch,ci){
+          var s=document.createElement('span');s.className='l';s.textContent=ch;
+          if(ci===swap){s.style.fontFamily=alts[Math.floor(rnd()*alts.length)];s.style.fontSize='1.08em';}
+          w.appendChild(s);
+        });
+        el.appendChild(w);all.push(w);
+      });
+    });
+    if(reduce||!('IntersectionObserver' in window))return;
+    all.forEach(function(s){s.style.opacity='0';});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;
+      all.forEach(function(s,i){s.style.animationDelay=(i*90)+'ms';s.style.opacity='';s.classList.add('in');});
+      io.disconnect();});},{threshold:.3});
+    io.observe(el);
+  });
+  // stickers pop in when scrolled to
+  if(!reduce&&'IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('pop');so.unobserve(e.target);}});},{threshold:.2});
+    document.querySelectorAll('.stk').forEach(function(s){so.observe(s);});
+  }
+})();
+
+// ---------- Tally embed, passing ?source= through (e.g. ?source=physio, ?source=qr-poster) ----------
+(function(){
+  var f=document.getElementById('tally'), src=f.getAttribute('data-tally-src');
+  var source=new URLSearchParams(location.search).get('source');
+  if(source){src+='&source='+encodeURIComponent(source);f.setAttribute('data-tally-src',src);}
+  var s=document.createElement('script');s.src='https://tally.so/widgets/embed.js';
+  s.onload=function(){if(window.Tally)Tally.loadEmbeds();};
+  s.onerror=function(){f.src=src;};
+  document.body.appendChild(s);
+})();
+
+// ---------- hide the mobile CTA once the form is on screen ----------
+(function(){
+  var m=document.getElementById('mcta'),t=document.getElementById('start');
+  if(!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(es){m.classList.toggle('hide',es[0].isIntersecting);},{threshold:.05}).observe(t);
+})();
+</script>
+</body>
+</html>
