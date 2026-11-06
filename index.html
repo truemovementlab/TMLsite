@@ -122,6 +122,7 @@
     .s-man{position:relative!important;display:block;margin:0 auto 18px;left:auto!important;top:auto!important;width:130px!important}
     .closer{padding-top:40px}}
   @media (prefers-reduced-motion:reduce){.stk.pop,.cut .w.in{animation:none}}
+  #book{display:none} #book.show{display:block}
   footer{border-top:1px solid var(--line);padding:28px 0 100px;font-family:var(--type);font-size:14px}
   footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
 
@@ -357,6 +358,23 @@
   var m=document.getElementById('mcta'),t=document.getElementById('start');
   if(!('IntersectionObserver' in window))return;
   var vis={};var io2=new IntersectionObserver(function(es){es.forEach(function(e){vis[e.target.id]=e.isIntersecting;});m.classList.toggle('hide',!!(vis.start||vis.book));},{threshold:.05});io2.observe(t);var bk=document.getElementById('book');if(bk)io2.observe(bk);
+})();
+
+// ---------- booking calendar only appears after the sign-up form is sent ----------
+(function(){
+  var book=document.getElementById('book'); if(!book)return;
+  function reveal(scroll){
+    if(book.classList.contains('show'))return;
+    book.classList.add('show');
+    try{localStorage.setItem('tml_signed_up','1');}catch(e){}
+    if(scroll)setTimeout(function(){book.scrollIntoView({behavior:'smooth',block:'start'});},600);
+  }
+  try{if(localStorage.getItem('tml_signed_up')==='1')reveal(false);}catch(e){}
+  window.addEventListener('message',function(e){
+    if(!/tally\.so$/.test((e.origin||'').replace(/^https?:\/\//,'')))return;
+    var d=e.data; if(typeof d==='string'){try{d=JSON.parse(d);}catch(x){return;}}
+    if(d&&d.event==='Tally.FormSubmitted')reveal(true);
+  });
 })();
 </script>
 </body>
