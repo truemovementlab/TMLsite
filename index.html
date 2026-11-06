@@ -123,6 +123,23 @@
     .closer{padding-top:40px}}
   @media (prefers-reduced-motion:reduce){.stk.pop,.cut .w.in{animation:none}}
   #book{display:none} #book.show{display:block}
+  /* ---------- 2-step progress ---------- */
+  .stepper{display:flex;align-items:center;gap:12px;max-width:520px;margin:0 auto 26px;font-family:var(--type);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  .stepper .st{display:flex;align-items:center;gap:8px;white-space:nowrap;color:var(--slate)}
+  .stepper .dot{width:32px;height:32px;border-radius:50%;border:2px solid var(--slate);display:grid;place-items:center;font-size:15px;background:var(--paper);flex:none}
+  .stepper .bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;min-width:40px}
+  .stepper .bar i{display:block;height:100%;width:50%;background:var(--teal);transition:width .8s ease}
+  .stepper .st.on{color:var(--ink)} .stepper .st.on .dot{border-color:var(--ink);background:var(--teal);color:var(--ink)}
+  .signed .stepper .bar i{width:100%}
+  .signed .stepper .s1 .dot{background:var(--ink);border-color:var(--ink);color:var(--white);font-size:0}
+  .signed .stepper .s1 .dot::before{content:"✓";font-size:16px}
+  .signed .stepper .s1{color:var(--ink)}
+  .signed .stepper .s2{color:var(--ink)} .signed .stepper .s2 .dot{border-color:var(--ink);background:var(--teal)}
+  .onemore{display:none;max-width:720px;margin:18px auto 0;background:var(--teal);color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:16px 20px;text-align:center;font-weight:800;font-size:18px;transform:rotate(-1deg)}
+  .onemore a{display:inline-block;margin-top:8px;font-family:var(--type);font-size:15px}
+  .signed .onemore{display:block}
+  #book .onemore{display:block;margin:0 auto 22px}
+  @media (max-width:520px){.stepper{font-size:12px;gap:8px}.stepper .dot{width:28px;height:28px}}
   footer{border-top:1px solid var(--line);padding:28px 0 100px;font-family:var(--type);font-size:14px}
   footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
 
@@ -191,7 +208,7 @@
       </div>
       <div class="steps">
         <div class="step"><div class="num">01</div><h3>Fill in the short form</h3><p>Name, contact, goals and a bit about your health. About 2 minutes.</p></div>
-        <div class="step"><div class="num">02</div><h3>Book a free chat</h3><p>Pick a time for a free 1-hour video chat with Jorge (weekends, 9am–4pm). No hard sell.</p></div>
+        <div class="step"><div class="num">02</div><h3>Book a free consult</h3><p>Pick a time for a free 1-hour video consult with Jorge (weekends, 9am–4pm). No hard sell.</p></div>
         <div class="step"><div class="num">03</div><h3>Pick your goals and start</h3><p>A proper health screen, then you choose 2–3 things to measure. Your 8-week program starts.</p></div>
       </div>
     </div>
@@ -242,7 +259,12 @@
     <div class="wrap">
       <div class="sec-head rel" style="text-align:center">
         <img class="stk" src="stickers/arrow.png" alt="" aria-hidden="true" style="width:clamp(64px,7vw,96px);left:calc(50% + 175px);top:40px;--r:-10deg">
-        <span class="strip teal">Takes about 2 minutes</span>
+        <div class="stepper" aria-label="Sign-up progress">
+          <div class="st s1 on"><span class="dot">1</span><span>Your details</span></div>
+          <div class="bar"><i></i></div>
+          <div class="st s2"><span class="dot">2</span><span>Book your consult</span></div>
+        </div>
+        <span class="strip teal">Step 1 of 2 · Takes about 2 minutes</span>
         <h2 class="cut" data-cut="LET'S GO." style="margin-top:14px;justify-content:center">Let's go.</h2>
       </div>
       <div class="form-card">
@@ -250,6 +272,7 @@
           data-tally-src="https://tally.so/embed/laqd7X?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"></iframe>
         <p class="fallback">Form not loading? <a href="https://tally.so/r/laqd7X">Open it here</a>.</p>
       </div>
+      <div class="onemore">✓ Details sent. One more step, this'll take less than 1 minute!<br><a href="#book">Pick your time below ↓</a></div>
     </div>
   </section>
 
@@ -257,12 +280,19 @@
   <section id="book" style="padding-top:10px">
     <div class="wrap">
       <div class="sec-head" style="text-align:center">
-        <span class="strip teal">Step 2 · Free 1-hour video chat</span>
+        <div class="onemore">One more step, this'll take less than 1 minute!</div>
+        <div class="stepper" aria-label="Sign-up progress">
+          <div class="st s1 on"><span class="dot">1</span><span>Your details</span></div>
+          <div class="bar"><i></i></div>
+          <div class="st s2"><span class="dot">2</span><span>Book your consult</span></div>
+        </div>
+        <span class="strip teal">Step 2 of 2 · Free 1-hour video consult</span>
         <h2 class="cut" data-cut="PICK A TIME." style="margin-top:14px;justify-content:center">Pick a time.</h2>
         <p style="max-width:46ch;margin:14px auto 0">Saturdays and Sundays, 9am–4pm. You'll get a Google Meet link by email straight away.</p>
+        <p style="max-width:46ch;margin:10px auto 0"><b>Keep an eye on your inbox:</b> the confirmation email includes a further form for your health and goal details. Please fill it out before your consult so we can go through it together.</p>
       </div>
       <div class="form-card" style="padding:10px 10px 4px">
-        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ31jZfeQn-KXbZmCL4d0tZGV84HA2JKetMxalDFcetKDh-evsZd6ZaweoP7gtz-GcLDUXBy4Opw?gv=true" title="Book a free chat with Jorge" style="border:0;width:100%;height:720px;display:block" loading="lazy"></iframe>
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ31jZfeQn-KXbZmCL4d0tZGV84HA2JKetMxalDFcetKDh-evsZd6ZaweoP7gtz-GcLDUXBy4Opw?gv=true" title="Book a free consult with Jorge" style="border:0;width:100%;height:720px;display:block" loading="lazy"></iframe>
         <p class="fallback">Calendar not loading? <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ31jZfeQn-KXbZmCL4d0tZGV84HA2JKetMxalDFcetKDh-evsZd6ZaweoP7gtz-GcLDUXBy4Opw">Open the booking page</a>.</p>
       </div>
     </div>
@@ -277,7 +307,7 @@
       <details><summary>I haven't exercised in years. Is this for me?</summary><p>Yes, that's exactly who it's for. We start where you are and build up from there.</p></details>
       <details><summary>What if I have an injury or health condition?</summary><p>Tell us on the form. Before you start, everyone completes the Australian standard pre-exercise health screen, and if you need the OK from your GP or physio first, Jorge will talk you through it.</p></details>
       <details><summary>How does online coaching work?</summary><p>You get your program on your phone, send short videos of your lifts for feedback, check in each week, and have a 1-on-1 catch-up each month.</p></details>
-      <details><summary>What does it cost?</summary><p>$49 per week plus a one-off $35 sign-up fee. There's nothing to pay to fill in the form or have the first chat.</p></details>
+      <details><summary>What does it cost?</summary><p>$49 per week plus a one-off $35 sign-up fee. There's nothing to pay to fill in the form or have the first consult.</p></details>
       <details><summary>What happens after 8 weeks?</summary><p>We re-test your goals so you can see your progress, then you can keep going with a new block.</p></details>
     </div>
   </section>
@@ -366,6 +396,7 @@
   function reveal(scroll){
     if(book.classList.contains('show'))return;
     book.classList.add('show');
+    document.body.classList.add('signed');
     try{localStorage.setItem('tml_signed_up','1');}catch(e){}
     if(scroll)setTimeout(function(){book.scrollIntoView({behavior:'smooth',block:'start'});},600);
   }
