@@ -356,7 +356,7 @@
 (function(){
   var m=document.getElementById('mcta'),t=document.getElementById('start');
   if(!('IntersectionObserver' in window))return;
-  new IntersectionObserver(function(es){m.classList.toggle('hide',es[0].isIntersecting);},{threshold:.05}).observe(t);
+  var vis={};var io2=new IntersectionObserver(function(es){es.forEach(function(e){vis[e.target.id]=e.isIntersecting;});m.classList.toggle('hide',!!(vis.start||vis.book));},{threshold:.05});io2.observe(t);var bk=document.getElementById('book');if(bk)io2.observe(bk);
 })();
 </script>
 </body>
